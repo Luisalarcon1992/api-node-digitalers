@@ -1,11 +1,20 @@
 import express, { json } from "express";
 import { userRouter } from "./routers/userLogin.js";
-import { indexRouter } from "./routers/index.js";
+import { indexRouter } from "./routers/generalPage.js";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
+
+const __fileName = fileURLToPath(import.meta.url);
+const __dirnName = dirname(__fileName);
+export const url = path.join(__dirnName + "/views");
 
 const app = express();
 
 app.disable("x-powered-by");
 app.use(json());
+app.use(express.static(url));
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/user", userRouter);
 app.use("/", indexRouter);

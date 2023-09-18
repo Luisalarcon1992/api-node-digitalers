@@ -1,11 +1,8 @@
 import { Router } from "express";
+import UserController from "../controllers/userLoing.js";
 
 export const userRouter = Router();
 
-userRouter.get("/", (req, res) => {
-  res.send("Ingresaste por el get");
-});
+userRouter.get("/", UserController.login);
 
-userRouter.post("/", (req, res) => {
-  res.send("Petición recibida");
-});
+userRouter.post("/", UserController.login);
