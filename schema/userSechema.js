@@ -1,10 +1,10 @@
 import z from "zod";
 
 const userSchema = z.object({
-  password: z.password({
+  password: z.string({
     required_error: "La contraseña es requerida",
   }),
-  username: z.username({
+  username: z.string({
     required_error: "El nombre de usuario es requerido",
   }),
 });

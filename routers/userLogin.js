@@ -3,6 +3,4 @@ import UserController from "../controllers/userLoing.js";
 
 export const userRouter = Router();
 
-userRouter.get("/", UserController.login);
-
-userRouter.post("/", UserController.login);
+userRouter.get("/", UserController.getAllUser);
