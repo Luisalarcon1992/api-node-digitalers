@@ -1,5 +1,5 @@
 import express, { json } from "express";
-import { userRouter } from "./routers/userLogin.js";
+import { productsRouter } from "./routers/products.js";
 import { indexRouter } from "./routers/generalPage.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,7 +16,7 @@ app.use(json());
 app.use(express.static(url));
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/user", userRouter);
+app.use("/productos", productsRouter);
 app.use("/", indexRouter);
 
 app.use((req, res) => {
