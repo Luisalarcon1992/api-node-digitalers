@@ -1,14 +1,22 @@
-import z from "zod";
+import { schema } from "mongodb"
 
-const userSchema = z.object({
-  password: z.string({
-    required_error: "La contraseña es requerida",
-  }),
-  username: z.string({
-    required_error: "El nombre de usuario es requerido",
-  }),
+const userSechema = new schema({
+  userName : {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  mail: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
-export function validarDatos(object) {
-  return userSchema.safeParse(object);
-}
+
+export default userSechema;
