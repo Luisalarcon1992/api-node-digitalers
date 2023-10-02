@@ -1,6 +1,5 @@
 import { ObjectId } from "mongodb";
 import { client } from "./conexionDB/db.js";
-import { query } from "express";
 
 const database = client.db("digitalers");
 const products = database.collection("products");

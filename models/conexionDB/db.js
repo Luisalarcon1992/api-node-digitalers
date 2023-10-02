@@ -1,6 +1,8 @@
 import { MongoClient } from "mongodb";
 import "dotenv/config";
 
-const uri = process.env.uri;
+// Crea una conexión, en tu archivo .env y crea la conexión con URI y tu conexión a mongodb
+
+const uri = process.env.URI;
 
 export const client = new MongoClient(uri);
