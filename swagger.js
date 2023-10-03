@@ -1,4 +1,5 @@
 import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
 const swaggerOptions = {
   swaggerDefinition: {
@@ -11,6 +12,15 @@ const swaggerOptions = {
   apis: ["./routers/*.js"], // Rutas donde se encuentran los comentarios Swagger
 };
 
-const swaggerDocs = swaggerJSDoc(swaggerOptions);
+const swaggerSepec = swaggerJSDoc(swaggerOptions);
+
+const swaggerDocs = (app, port) => {
+  app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSepec));
+  app.get("/docs.json", (req, res) => {
+    res.setHeader("Content-Type: application/json");
+    res.send(swaggerSepec);
+  });
+  console.log("swagger docs");
+};
 
 export default swaggerDocs;
