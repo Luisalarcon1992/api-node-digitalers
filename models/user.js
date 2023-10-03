@@ -1,9 +1,9 @@
-import { client } from "./conexionDB/db.js";
+import { client } from './conexionDB/db.js';
 
 // Cambia esto según tus bd y tu collection
 
-const db = client.db("digitalers");
-const userCollection = db.collection("user");
+const db = client.db('digitalers');
+const userCollection = db.collection('user');
 
 // Función para insertar un usuario en la base de datos
 export default class UserModel {
@@ -31,7 +31,7 @@ export default class UserModel {
 
       return userCreated; // Usuario insertado correctamente
     } catch (error) {
-      console.error("Error al insertar el usuario en la base de datos:", error);
+      console.error('Error al insertar el usuario en la base de datos:', error);
       return false; // Error al insertar el usuario
     }
   }

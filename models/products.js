@@ -1,8 +1,8 @@
-import { ObjectId } from "mongodb";
-import { client } from "./conexionDB/db.js";
+import { ObjectId } from 'mongodb';
+import { client } from './conexionDB/db.js';
 
-const database = client.db("digitalers");
-const products = database.collection("products");
+const database = client.db('digitalers');
+const products = database.collection('products');
 
 export default class ProductModel {
   static async getAllPrudcts() {
@@ -54,7 +54,7 @@ export default class ProductModel {
       const nid = new ObjectId(id);
       const query = { _id: nid };
       const deleted = await products.deleteOne(query);
-      if (deleted.deletedCount == 1) {
+      if (deleted.deletedCount === 1) {
         return true;
       }
       return false;

@@ -1,5 +1,5 @@
-import { MongoClient } from "mongodb";
-import "dotenv/config";
+import { MongoClient } from 'mongodb';
+import 'dotenv/config';
 
 // Crea una conexión, en tu archivo .env y crea la conexión con URI y tu conexión a mongodb
 

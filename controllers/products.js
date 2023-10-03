@@ -1,4 +1,4 @@
-import ProductModel from "../models/products.js";
+import ProductModel from '../models/products.js';
 
 export default class ProductsController {
   static async getAllPrudcts(req, res) {
@@ -6,7 +6,7 @@ export default class ProductsController {
     if (users.length > 0) {
       return res.status(200).json(users);
     }
-    return res.status(200).json({ Vacio: "La colección está sin datos" });
+    return res.status(200).json({ Vacio: 'La colección está sin datos' });
   }
 
   static async getProduct(req, res) {
@@ -15,7 +15,7 @@ export default class ProductsController {
     const users = await ProductModel.getProduct(id);
     if (users) return res.status(200).json(users);
 
-    return res.status(404).json({ Error: "No se encontró el id" });
+    return res.status(404).json({ Error: 'No se encontró el id' });
   }
 
   static async postAddProducts(req, res) {
@@ -43,7 +43,7 @@ export default class ProductsController {
     if (deletedDocument) {
       return res
         .status(200)
-        .json({ Exito: "Elemento eliminado correctamente" });
+        .json({ Exito: 'Elemento eliminado correctamente' });
     }
     return res.status(404).json({ Error: `El ${id} no existe` });
   }

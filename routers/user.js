@@ -1,6 +1,6 @@
-import { Router } from "express";
-import { verificarToken } from "../middleware/jwt.validation.js";
-import UserController from "../controllers/user.js";
+import { Router } from 'express';
+import { verificarToken } from '../middleware/jwt.validation.js';
+import UserController from '../controllers/user.js';
 
 export const userRouter = Router();
 
@@ -35,7 +35,7 @@ export const userRouter = Router();
  *       '400':
  *         description: Credenciales incorrectas o solicitud incorrecta
  */
-userRouter.post("/", UserController.postCreateUser);
+userRouter.post('/', UserController.postCreateUser);
 
 /**
  * @swagger
@@ -63,4 +63,4 @@ userRouter.post("/", UserController.postCreateUser);
  *       '400':
  *         description: Error en la solicitud o usuario ya existe
  */
-userRouter.post("/login", verificarToken, UserController.getUser);
+userRouter.post('/login', verificarToken, UserController.getUser);

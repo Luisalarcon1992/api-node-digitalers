@@ -1,5 +1,5 @@
-import { Router } from "express";
-import ProductsController from "../controllers/products.js";
+import { Router } from 'express';
+import ProductsController from '../controllers/products.js';
 
 export const productsRouter = Router();
 
@@ -23,7 +23,7 @@ export const productsRouter = Router();
  *       '500':
  *         description: Error en el servidor
  */
-productsRouter.get("/", ProductsController.getAllPrudcts);
+productsRouter.get('/', ProductsController.getAllPrudcts);
 
 /**
  * @swagger
@@ -49,7 +49,7 @@ productsRouter.get("/", ProductsController.getAllPrudcts);
  *       '400':
  *         description: Error en la solicitud
  */
-productsRouter.post("/", ProductsController.postAddProducts);
+productsRouter.post('/', ProductsController.postAddProducts);
 
 /**
  * @swagger
@@ -75,7 +75,7 @@ productsRouter.post("/", ProductsController.postAddProducts);
  *       '400':
  *         description: Error en la solicitud
  */
-productsRouter.post("/crear", ProductsController.createNewCollection);
+productsRouter.post('/crear', ProductsController.createNewCollection);
 
 /**
  * @swagger
@@ -97,7 +97,7 @@ productsRouter.post("/crear", ProductsController.createNewCollection);
  *       '404':
  *         description: Producto no encontrado
  */
-productsRouter.get("/:id", ProductsController.getProduct);
+productsRouter.get('/:id', ProductsController.getProduct);
 
 /**
  * @swagger
@@ -119,7 +119,7 @@ productsRouter.get("/:id", ProductsController.getProduct);
  *       '404':
  *         description: Producto no encontrado
  */
-productsRouter.delete("/:id", ProductsController.deleteProductById);
+productsRouter.delete('/:id', ProductsController.deleteProductById);
 
 /**
  * @swagger
@@ -141,4 +141,4 @@ productsRouter.delete("/:id", ProductsController.deleteProductById);
  *       '404':
  *         description: Colección de productos no encontrada
  */
-productsRouter.delete("/collection/:name", ProductsController.deleteCollection);
+productsRouter.delete('/collection/:name', ProductsController.deleteCollection);
