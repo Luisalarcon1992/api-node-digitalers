@@ -1,39 +1,50 @@
-import {client} from "./conexionDB/db.js"
+import { client } from "./conexionDB/db.js";
 
 // Cambia esto según tus bd y tu collection
 
-const db = client.db('digitalers'); 
-const userCollection = db.collection('user');
-
+const db = client.db("digitalers");
+const userCollection = db.collection("user");
 
 // Función para insertar un usuario en la base de datos
-async function insertarUsuario(usuario) {
-  try {
-    const client = await MongoClient.connect(mongoURL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+export default class UserModel {
+  static async createUser(user) {
+    try {
+      // Verificar si el usuario ya existe en la base de datos
+      const usuarioExistente = await userCollection.findOne({
+        username: user.username,
+      });
+
+      const userMailExist = await userCollection.findOne({
+        mail: user.mail,
+      });
+
+      if (usuarioExistente) {
+        return false; // El usuario ya existe
+      }
+
+      if (userMailExist) {
+        return false;
+      }
+
+      // Insertar el usuario en la base de datos
+      const userCreated = await userCollection.insertOne(user);
+
+      return userCreated; // Usuario insertado correctamente
+    } catch (error) {
+      console.error("Error al insertar el usuario en la base de datos:", error);
+      return false; // Error al insertar el usuario
+    }
+  }
+
+  static async getUserMail(mail) {
+    const existMail = await userCollection.findOne({
+      mail: mail,
     });
 
-    const db = client.db();
-    const collection = db.collection(collectionName);
-
-    // Verificar si el usuario ya existe en la base de datos
-    const usuarioExistente = await collection.findOne({ username: usuario.username });
-
-    if (usuarioExistente) {
-      client.close();
-      return false; // El usuario ya existe
+    if (existMail) {
+      return existMail;
     }
 
-    // Insertar el usuario en la base de datos
-    await collection.insertOne(usuario);
-
-    client.close();
-    return true; // Usuario insertado correctamente
-  } catch (error) {
-    console.error('Error al insertar el usuario en la base de datos:', error);
-    return false; // Error al insertar el usuario
+    return false;
   }
 }
-
-export { insertarUsuario };

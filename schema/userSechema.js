@@ -1,11 +1,12 @@
-import { schema } from "mongodb"
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
-const userSechema = new schema({
-  userName : {
+const userSechema = new Schema({
+  username: {
     type: String,
     required: true,
     unique: true,
-    trim: true
+    trim: true,
   },
   mail: {
     type: String,
@@ -14,9 +15,8 @@ const userSechema = new schema({
   },
   password: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
-
-export default userSechema;
+export default mongoose.model("User", userSechema);
