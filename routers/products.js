@@ -1,6 +1,9 @@
 import { Router } from 'express';
 import ProductsController from '../controllers/products.js';
 import { verificarToken } from '../middleware/jwt.validation.js';
+import { productSchema } from '../schema/productSchema.js';
+import { validateSechema } from '../middleware/validateSchema.js';
+import { collectionNameSchema } from '../schema/collectionNameScchema.js';
 
 export const productsRouter = Router();
 
@@ -53,6 +56,7 @@ productsRouter.get('/', verificarToken, ProductsController.getAllPrudcts);
 productsRouter.post(
   '/crear',
   verificarToken,
+  validateSechema(collectionNameSchema),
   ProductsController.createNewCollection,
 );
 
@@ -130,6 +134,16 @@ productsRouter.delete(
   ProductsController.deleteCollection,
 );
 
-productsRouter.post('/libros', verificarToken, ProductsController.AddProducts);
+productsRouter.post(
+  '/libros',
+  validateSechema(productSchema),
+  verificarToken,
+  ProductsController.AddProducts,
+);
 
-productsRouter.put('/:id', verificarToken, ProductsController.updateProduct);
+productsRouter.put(
+  '/:id',
+  verificarToken,
+  validateSechema(productSchema),
+  ProductsController.updateProduct,
+);

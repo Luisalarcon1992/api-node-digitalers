@@ -8,7 +8,7 @@ const secret = process.env.SECRET_PASSWORD;
 export default class Token {
   static async createToken(payload) {
     return jwt.sign(payload, secret, {
-      expiresIn: '1d',
+      expiresIn: '1h',
     });
   }
 }

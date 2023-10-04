@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import { verificarToken } from '../middleware/jwt.validation.js';
 import UserController from '../controllers/user.js';
-
+import { validateSechema } from '../middleware/validateSchema.js';
+import { userSchema } from '../schema/userSchema.js';
 export const userRouter = Router();
 
 /**
@@ -35,7 +36,11 @@ export const userRouter = Router();
  *       '400':
  *         description: Credenciales incorrectas o solicitud incorrecta
  */
-userRouter.post('/', UserController.postCreateUser);
+userRouter.post(
+  '/',
+  validateSechema(userSchema),
+  UserController.postCreateUser,
+);
 
 /**
  * @swagger
@@ -63,4 +68,9 @@ userRouter.post('/', UserController.postCreateUser);
  *       '400':
  *         description: Error en la solicitud o usuario ya existe
  */
-userRouter.post('/login', verificarToken, UserController.loginUser);
+userRouter.post(
+  '/login',
+  verificarToken,
+  validateSechema(userSchema),
+  UserController.loginUser,
+);

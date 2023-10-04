@@ -1,5 +1,5 @@
 import ProductModel from '../models/products.js';
-import Product from '../schema/productSchema.js';
+import Product from '../models/schema/productSchema.js';
 
 export default class ProductsController {
   static async getAllPrudcts(req, res) {

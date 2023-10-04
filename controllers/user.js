@@ -1,4 +1,4 @@
-import user from '../schema/userSechema.js';
+import user from '../models/schema//userSechema.js';
 import UserModel from '../models/user.js';
 import bcrypt from 'bcrypt';
 import Token from '../libs/token.js';
