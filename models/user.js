@@ -23,7 +23,7 @@ export default class UserModel {
       }
 
       if (userMailExist) {
-        return false;
+        return false; // El mail ya existe
       }
 
       // Insertar el usuario en la base de datos

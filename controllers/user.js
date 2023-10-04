@@ -19,11 +19,12 @@ export default class UserController {
 
     try {
       const hash = await bcrypt.hash(password, tryRounds);
-      const newUser = {
+
+      const newUser = new userSechema({
         username,
         password: hash,
         mail,
-      };
+      });
 
       const result = await UserModel.createUser(newUser);
 
