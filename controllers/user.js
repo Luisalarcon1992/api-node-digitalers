@@ -1,4 +1,4 @@
-import userSechema from '../schema/userSechema.js';
+import user from '../schema/userSechema.js';
 import UserModel from '../models/user.js';
 import bcrypt from 'bcrypt';
 import Token from '../libs/token.js';
@@ -7,7 +7,7 @@ export default class UserController {
   static async postCreateUser(req, res) {
     const { mail, password, username } = req.body;
 
-    const error = await userSechema.validate({ username, password, mail });
+    const error = await user.validate({ username, password, mail });
 
     if (error)
       return res.send(400).json({
@@ -20,7 +20,7 @@ export default class UserController {
     try {
       const hash = await bcrypt.hash(password, tryRounds);
 
-      const newUser = new userSechema({
+      const newUser = new user({
         username,
         password: hash,
         mail,
@@ -43,7 +43,7 @@ export default class UserController {
     }
   }
 
-  static async getUser(req, res) {
+  static async loginUser(req, res) {
     const { mail, password } = req.body;
 
     const lowercaseMail = mail.toLowerCase();
@@ -62,7 +62,10 @@ export default class UserController {
 
     // Si el correo electrónico y la contraseña son válidos, generamos un token y respondemos
     const token = await Token.createToken({ id: user._id });
-    res.cookie('token', token);
+    res.cookie('token', token, {
+      expires: new Date(Date.now() + 3600000),
+      htppOnly: true,
+    });
     res.json({
       id: user._id,
       username: user.username,

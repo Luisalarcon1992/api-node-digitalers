@@ -22,7 +22,9 @@ const userSechema = new Schema(
       default: Date.now,
     },
   },
-  { Timestamp: true },
+  {
+    Timestamp: true,
+  },
 );
 
 export default mongoose.model('User', userSechema);

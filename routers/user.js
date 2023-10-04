@@ -63,4 +63,4 @@ userRouter.post('/', UserController.postCreateUser);
  *       '400':
  *         description: Error en la solicitud o usuario ya existe
  */
-userRouter.post('/login', verificarToken, UserController.getUser);
+userRouter.post('/login', verificarToken, UserController.loginUser);
