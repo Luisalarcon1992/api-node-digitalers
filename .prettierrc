@@ -2,5 +2,13 @@
   "tabWidth": 2,
   "singleQuote": true,
   "trailingComma": "all",
-  "vueIndentScriptAndStyle": true
+  "vueIndentScriptAndStyle": true,
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "parser": "glimmer"
+      }
+    }
+  ]
 }
