@@ -38,12 +38,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // rutas
 app.use('/productos', productsRouter);
 app.use('/user', userRouter);
-app.use('/', frontEndRouter);
+app.use('/prueba', frontEndRouter);
 
 // swagger
 const initSwagger = () => {
   const swggerConfig = swaggerJSDoc(swaggerOptions);
-  app.use('/api-digitalers', swaggerUI.serve, swaggerUI.setup(swggerConfig));
+  app.use('/', swaggerUI.serve, swaggerUI.setup(swggerConfig));
 };
 
 initSwagger();
