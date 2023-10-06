@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Roboto+Condensed:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*
+font-family: 'Roboto Condensed', sans-serif;
+*/
+
+/* Reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Colores a utilizar y fuentes */
+
+:root {
+    --primary: #00B98E;
+    --secondary: #FF6922;
+    --light: #EFFDF5;
+    --dark: #0E2E50;
+    --font-roboto: 'Roboto Condensed', sans-serif;
+}
+
+/* Tags generales */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--light);
+}
+
+header {
+    display: flex;
+    position: relative;
+    margin-bottom: 200px;
+    align-items: center;
+}
+
+/* Clases */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    font-weight: bold;
+    color: var(--dark);
+}
+
+.menu .navbar ul li a:hover {
+    color: var(--primary);
+}
+
+
+.icons {
+    display: flex;
+}
+
+.icons i {
+    font-size: 25px;
+    color: var(--dark)
+}
+
+.icons i:hover {
+    color: var(--light);
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+.header-text {
+    width: 40%;
+}
+
+.header-text h1 {
+    font-size: 70px;
+    line-height: 80px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--dark);
+    font-family: var(--font-roboto)
+}
+
+.header-text span {
+    color: var(--primary)
+}
+
+.header-text p {
+    font-size: 18px;
+    color: #666565;
+    font-weight: 500;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: var(--primary);
+    color: white;
+    text-transform: capitalize;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+    font-family: var(--font-roboto);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.btn-1:hover {
+    background-color: #26c49f;
+    border-color: #1ac099;
+}
+
+
+.images {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    /* Ajusta el ancho según tus necesidades */
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    /* Para separar el texto y las imágenes */
+    align-items: flex-end;
+    /* Para alinear las imágenes en la parte inferior */
+}
+
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.rows {
+    position: absolute;
+    left: 70%;
+    z-index: 2;
+    /* Cambia el z-index a 2 para que esté por encima de la imagen */
+}
+
+.swiper-button-prev {
+    transform: translateX(-190%);
+}
+
+.swiper-button-next {
+    transform: translateX(80%);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    height: 50px;
+    width: 50px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 25px;
+}
+
+
+/* IDs */
+
+#menu {
+    display: none;
+}
+
+
+/* Media Queryes*/
+
+@media (max-width:991px) {
+    .menu {
+        padding: 30px;
+    }
+
+    .menu label {
+        display: initial;
+    }
+
+    .menu .navbar {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #0E2E50;
+        backdrop-filter: blur(5px);
+        display: none;
+    }
+
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked~.navbar {
+        display: initial;
+    }
+
+    .header {
+        padding: 80px 30px 50px 30px;
+        align-items: self-start;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-text {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .header-text h1 {
+        margin-bottom: 10px;
+    }
+
+    .images {
+        position: initial;
+        width: 300px;
+        height: 300px;
+    }
+
+
+}

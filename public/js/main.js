@@ -1,6 +1,19 @@
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-const darkMode = document.getElementById('dark');
-
-darkMode.addEventListener('click', () => {
-  darkMode.setAttribute('class', 'bg-black');
+// eslint-disable-next-line no-undef
+const swiper = new Swiper('.mySwiper', {
+  slidesPerView: 1,
+  centeredSlides: true,
+  loop: true,
+  spaceBetween: 30,
+  grabCursor: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    991: {
+      slidesPerView: 1,
+    },
+  },
 });
+
+swiper();
