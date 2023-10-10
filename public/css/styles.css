@@ -75,20 +75,6 @@ header {
     color: var(--primary);
 }
 
-
-.icons {
-    display: flex;
-}
-
-.icons i {
-    font-size: 25px;
-    color: var(--dark)
-}
-
-.icons i:hover {
-    color: var(--light);
-}
-
 .menu-icono {
     width: 25px;
 }
@@ -152,6 +138,7 @@ header {
 }
 
 .header-content {
+    padding: 10px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -191,11 +178,11 @@ header {
     /* Cambia el z-index a 2 para que esté por encima de la imagen */
 }
 
-.swiper-button-prev {
+#swiper-button-prev {
     transform: translateX(-190%);
 }
 
-.swiper-button-next {
+#swiper-button-next {
     transform: translateX(80%);
 }
 
@@ -216,6 +203,634 @@ header {
     font-size: 25px;
 }
 
+
+.propiedades {
+    color: var(--dark);
+    font-family: var(--font-roboto);
+
+    margin-top: 100px;
+}
+
+.propiedades h2 {
+    text-align: center;
+    font-size: 50px;
+    text-transform: capitalize;
+    margin: 20px;
+}
+
+.propiedades h4 {
+    text-align: center;
+    font-size: 20px;
+    max-width: 800px;
+    margin-left: 200px;
+}
+
+.propiedades hr {
+    border: none;
+    padding: 30px;
+}
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--light);
+    border-radius: 5px;
+
+}
+
+.card-interno {
+    background-color: white;
+    margin: 10px;
+    border: 1px dotted var(--primary);
+}
+
+.card a {
+    display: block;
+    padding: 20px;
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenido h6 {
+    margin-top: 10px;
+}
+
+.contenido span {
+    margin-top: 5px;
+}
+
+.icon-card {
+    padding-top: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 0.1px dotted var(--primary);
+}
+
+.card a:hover:not(.icon-card) .icon-card {
+    border-color: var(--light);
+    background-color: white;
+}
+
+.card a:hover:not(.icon-card) {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+/* About */
+
+.about {
+    margin-top: 100px;
+    padding: 40px 20px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.about img {
+    width: 600px;
+    height: 600px;
+}
+
+.text-about {
+    color: var(--dark);
+    padding-left: 50px;
+}
+
+.text-about h1 {
+    font-size: 60px;
+    text-transform: capitalize;
+}
+
+.text-about p {
+    margin-top: 30px;
+    font-size: 20px;
+    padding-top: 20px;
+    letter-spacing: 1px;
+    line-height: 25px;
+}
+
+.text-about ul {
+    margin-top: 15px;
+}
+
+.text-about ul li {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.text-about ul li:before {
+    content: '✓';
+    margin: 30px 10px;
+    color: var(--primary);
+}
+
+
+/* Lista de propiedades */
+
+.lista-propiedades {
+    margin-bottom: 100px;
+}
+
+.lista-propiedades h1 {
+    font-size: 50px;
+    color: var(--dark);
+    text-transform: capitalize;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+}
+
+.contenido-propiedades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 5px;
+}
+
+
+.contenido-propiedades .texto {
+    grid-column: span 2;
+}
+
+.texto p {
+    margin-left: 5px;
+}
+
+.listas ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.listas ul li {
+    border: 1px solid var(--primary);
+    color: var(--dark);
+    font-size: 20px;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.listas ul li:hover a {
+    color: white;
+}
+
+.listas ul li:hover {
+    background-color: var(--primary);
+}
+
+.listas ul li a::after
+/* Venta-Alquiler de propiedades*/
+
+.todas-propiedades a {
+    display: block;
+}
+
+.todas-propiedades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 10px;
+    max-width: 1200px;
+    background-color: #F6F6F6;
+}
+
+.card-principal {
+    position: relative;
+    background-color: white;
+}
+
+.imagen-venta {
+    position: relative;
+    overflow: hidden;
+}
+
+.imagen-venta img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.span1 {
+    background-color: var(--primary);
+    color: white;
+    letter-spacing: 2px;
+    top: -10px;
+    left: 0;
+    position: absolute;
+    margin: 10px 20px;
+    padding: 5px;
+    border-radius: 0px 0 5px 5px;
+    font-size: 20px;
+}
+
+.span2 {
+    bottom: -10px;
+    left: 0;
+    background-color: white;
+    color: var(--dark);
+    letter-spacing: 1px;
+    position: absolute;
+    margin: 10px 20px;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+}
+
+.precio-ubicacion {
+    padding: 10px;
+    margin: 10px;
+}
+
+.precio-ubicacion h2 {
+    color: var(--primary);
+}
+
+.precio-ubicacion p {
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.precio-ubicacion i {
+    padding-top: 10px;
+    color: var(--primary);
+}
+
+.precio-ubicacion span {
+    padding: 10px;
+    padding-top: 10px;
+    color: #666565;
+}
+
+.informacion {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.m2,
+.habitaciones,
+.banios {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.m2 i .habitaciones i .banios i {
+    padding-right: px;
+}
+
+.m2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px dotted var(--primary);
+    border-right: 1px dotted var(--primary);
+    border-collapse: separate;
+}
+
+.habitaciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 1px dotted var(--primary);
+    border-right: 1px dotted var(--primary);
+    border-collapse: separate;
+    border-width: 1;
+}
+
+.banios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px dotted var(--primary);
+    border-collapse: separate;
+    border-width: 1;
+}
+
+.card-principal .imagen-venta img {
+    transform: scale(1);
+    transition: transform 0.4s ease;
+}
+
+.card-principal:hover .imagen-venta img {
+    transform: scale(1.10);
+}
+
+/*#;*/
+.ver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    padding: 0px 0px 10px 0px;
+    background-color: #F6F6F6
+}
+
+.ver a {
+    background-color: var(--primary);
+    color: var(--dark);
+    font-size: 30px;
+    padding: 10px;
+    border-color: var(--light);
+    border-radius: 10px;
+    transform: scale(1);
+    transition: transform 0.4s ease;
+}
+
+.ver a:hover {
+    transform: scale(1.10);
+    color: var(--light);
+}
+
+/* Contact Agents*/
+
+
+.card-info {
+    background-color: #F6F6F6;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+.card-agent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    margin-top: 10px;
+
+}
+
+.agent {
+    padding: 5px;
+}
+
+.agent img {
+    width: 550px;
+}
+
+.agent-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    padding-left: 40px;
+    margin-left: 40px;
+}
+
+.agent-info h1 {
+    color: var(--dark);
+    font-size: 40px;
+    text-align: center;
+}
+
+.agent-info a {
+    text-align: center;
+    font-size: 40px;
+    padding: 15px;
+    border-radius: 20px;
+    color: var(--dark);
+    background-color: var(--primary);
+    transform: scale(1);
+    transition: transform 0.4s ease;
+}
+
+.agent-info a:hover {
+    transform: scale(1.1);
+    color: var(--light);
+}
+
+/* Comment Customer */
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+}
+
+.comment-start {
+    margin-bottom: 60px;
+    padding: 10px;
+}
+
+.comment-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-start h1 {
+    font-size: 50px;
+    color: var(--dark);
+    padding-bottom: 20px;
+}
+
+.comment-start p {
+    color: #666565;
+    width: 600px;
+    text-wrap: balance;
+}
+
+/*#########################*/
+.comment-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.comment-style {
+    background-color: var(--light);
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+    width: 100%;
+    /* Ajustar el ancho de los comentarios */
+}
+
+.comment-slider .active-comment {
+    transform: translateX(0);
+    /* Mostrar el comentario actual */
+}
+
+.comment-slider .next-comment {
+    transform: translateX(-100%);
+    /* Ocultar el comentario a la izquierda */
+}
+
+.comment-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 500px;
+    background-color: white;
+    padding: 10px;
+    border: 1px dotted var(--primary);
+
+}
+
+.comment-profile {
+    display: flex;
+    gap: 10px;
+}
+
+/* sliders buttons */
+
+.comment-rows {
+    display: flex;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+
+#swiper-button-prev2 {
+    position: relative;
+    background-color: var(--light);
+    margin-right: 20px;
+}
+
+#swiper-button-next2 {
+    position: relative;
+    margin-left: 20px;
+    background-color: var(--light);
+}
+
+/* Footer */
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 50px 200px 50px;
+    background-color: var(--dark);
+    color: var(--light);
+    height: 400px;
+    /* Alinea el texto horizontalmente en el footer */
+}
+
+.contacts,
+.sites,
+.photos {
+    margin-top: 30px;
+}
+
+
+.contacts,
+.sites {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contacts h1,
+.sites h1,
+.photos h1 {
+    font-size: 40px;
+    padding-bottom: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.contacts ul li {
+    width: 400px
+}
+
+
+.contacts ul li i {
+    padding: 10px;
+}
+
+.contacts ul li:hover i {
+    color: var(--primary);
+}
+
+.photos img {
+    width: 90px;
+
+    border: 2px solid var(--light);
+}
+
+.sites ul li {
+    margin-bottom: 10px;
+}
+
+.sites ul li a {
+    color: var(--light);
+}
+
+.sites ul li::before {
+    content: ">";
+    padding-right: 10x;
+    font-weight: 700;
+}
+
+.sites ul li:hover::before {
+    color: var(--primary);
+}
+
+.photos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photos-galery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+}
+
+.container br {
+    margin-bottom: 100px;
+    background-color: blue;
+    border-color: 100px solid var(--light);
+}
+
+.icons {
+    display: flex;
+}
+
+.icons i {
+    font-size: 25px;
+    color: var(--light);
+    padding: 0 10px;
+}
+
+.icons i:hover {
+    color: var(--primary)
+}
 
 /* IDs */
 

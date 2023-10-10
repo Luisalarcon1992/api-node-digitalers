@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
@@ -17,15 +16,35 @@
     <link rel='stylesheet' href='/css/styles.css' />
   </head>
   <body>
-    <header >
+    <header>
       {{>navbar}}
     </header>
-    
-    <body>
-      {{{body}}}
-    </body>
-    
 
+    <main>
+      {{{body}}}
+    </main>
+    <section>
+      {{>typePropertis}}
+    </section>
+    <section>
+      {{>about}}
+    </section>
+
+    <section>
+      {{>propertis}}
+    </section>
+
+    <section>
+      {{>contactAgents}}
+    </section>
+
+    <section>
+      {{>comments}}
+    </section>
+
+    <footer>
+      {{>footer}}
+    </footer>
     <script
       src='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js'
     ></script>
