@@ -1,8 +1,11 @@
 import { Router } from 'express';
 import { verificarToken } from '../middleware/jwt.validation.js';
 import UserController from '../controllers/user.js';
-import { validateSechema } from '../middleware/validateSchema.js';
-import { userSchema } from '../schema/userSchema.js';
+import {
+  validateSechema,
+  validateSechemaLogin,
+} from '../middleware/validateSchema.js';
+import { userSchema, userSchemaLogin } from '../schema/userSchema.js';
 export const userRouter = Router();
 
 /**
@@ -37,7 +40,7 @@ export const userRouter = Router();
  *         description: Credenciales incorrectas o solicitud incorrecta
  */
 userRouter.post(
-  '/',
+  '/register',
   validateSechema(userSchema),
   UserController.postCreateUser,
 );
@@ -71,6 +74,6 @@ userRouter.post(
 userRouter.post(
   '/login',
   verificarToken,
-  validateSechema(userSchema),
+  validateSechemaLogin(userSchemaLogin),
   UserController.loginUser,
 );

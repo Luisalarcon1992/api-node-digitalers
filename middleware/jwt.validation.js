@@ -1,4 +1,3 @@
-import Token from '../libs/token.js';
 import 'dotenv/config';
 import jwt from 'jsonwebtoken';
 

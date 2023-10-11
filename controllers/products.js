@@ -43,7 +43,9 @@ export default class ProductsController {
     });
 
     const created = await ProductModel.postAddProducts(product);
-    if (created) return res.status(200).json(created);
+    if (created) {
+      return res.redirect('/');
+    }
     return res.status(404).json({
       Error: `No se pudo cargar los archivos`,
     });
@@ -52,8 +54,9 @@ export default class ProductsController {
   static async createNewCollection(req, res) {
     const { name } = req.body;
     const createdNewCollection = await ProductModel.postNewCollection(name);
-    if (createdNewCollection)
-      return res.status(200).json({ Exito: `Se creó la colección ${name}` });
+    if (createdNewCollection) {
+      return res.redirect('/');
+    }
     return res.status(404).json({
       Error: `No se pudo crear la tabla '${name}' porque ya existe un valor con el mismo nombre `,
     });
@@ -63,9 +66,7 @@ export default class ProductsController {
     const { id } = req.params;
     const deletedDocument = await ProductModel.deleteProductById(id);
     if (deletedDocument) {
-      return res
-        .status(200)
-        .json({ Exito: 'Elemento eliminado correctamente' });
+      return res.redirect('/');
     }
     return res.status(404).json({ Error: `El ${id} no existe` });
   }

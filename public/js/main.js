@@ -31,3 +31,12 @@ const swiper2 = new Swiper('.mySwiper2', {
     },
   },
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const alert = document.querySelector('.custom-alert.success');
+  const closeBtn = alert.querySelector('.close-button');
+
+  closeBtn.addEventListener('click', function () {
+    alert.style.display = 'none'; // Oculta la alerta al hacer clic en el botón de cierre
+  });
+});

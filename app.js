@@ -9,6 +9,9 @@ import swaggerUI from 'swagger-ui-express';
 import { engine } from 'express-handlebars';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import morgan from 'morgan';
+import flash from 'connect-flash';
+import session from 'express-session';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,6 +23,21 @@ app.disable('x-powered-by');
 app.use(json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(morgan('dev'));
+app.use(
+  session({
+    secret: 'digitalers',
+    resave: true,
+    saveUninitialized: true,
+  }),
+);
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.successMsg = req.flash('successMsg');
+  res.locals.errorMsg = req.flash('errorMsg');
+
+  next();
+});
 app.set('views', path.join(__dirname, 'views'));
 app.engine(
   '.hbs',
@@ -38,12 +56,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // rutas
 app.use('/productos', productsRouter);
 app.use('/user', userRouter);
-app.use('/prueba', frontEndRouter);
+app.use('/', frontEndRouter);
 
 // swagger
 const initSwagger = () => {
   const swggerConfig = swaggerJSDoc(swaggerOptions);
-  app.use('/', swaggerUI.serve, swaggerUI.setup(swggerConfig));
+  app.use('/api', swaggerUI.serve, swaggerUI.setup(swggerConfig));
 };
 
 initSwagger();
