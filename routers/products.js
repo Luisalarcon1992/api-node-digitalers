@@ -4,6 +4,7 @@ import { verificarToken } from '../middleware/jwt.validation.js';
 import { productSchema } from '../schema/productSchema.js';
 import { validateSechema } from '../middleware/validateSchema.js';
 import { collectionNameSchema } from '../schema/collectionNameScchema.js';
+import { body } from 'express-validator';
 
 export const productsRouter = Router();
 
@@ -135,7 +136,8 @@ productsRouter.delete(
 );
 
 productsRouter.post(
-  '/libros',
+  '/agregar',
+  body('price').toInt(),
   validateSechema(productSchema),
   verificarToken,
   ProductsController.AddProducts,

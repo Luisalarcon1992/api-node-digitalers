@@ -7,11 +7,14 @@
   <nav class='navbar'>
     <ul>
       <li><a href='/'>Inicio</a></li>
-      <li><a href='#'>Propiedades</a></li>
-      <li><a href='#'>Contacto</a></li>
+      <li><a href='/propiedades'>Propiedades</a></li>
+      <li><a href='/contacto'>Contacto</a></li>
       <li><a href='/login'>Login</a></li>
-      <li><a href='/register'>Registrarse</a></li>
-      <li><a href='#'>Logout</a></li>
+      <li><a href='/registrar'>Registrarse</a></li>
+      {{#if user.admin}}
+        <li><a href='/logout'>Logout</a></li>
+        <li><a href='/admin'>Cargar Propiedad</a></li>
+      {{/if}}
     </ul>
   </nav>
 </div>

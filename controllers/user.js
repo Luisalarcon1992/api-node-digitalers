@@ -73,4 +73,9 @@ export default class UserController {
     });
     res.redirect('/');
   }
+
+  static async logoutUser(req, res) {
+    res.cookies = '';
+    res.redirect('/');
+  }
 }

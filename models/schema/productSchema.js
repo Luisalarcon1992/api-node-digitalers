@@ -13,26 +13,26 @@ const productSechema = new Schema(
       type: String,
       max: 500,
     },
-    publicdate: {
+    price: {
       type: Number,
       required: true,
       min: 4,
       max: 4,
     },
-    author: {
+    direction: {
       type: String,
       required: true,
       min: 4,
-      max: 30,
+      max: 50,
     },
-    language: {
+    cathegoryProperty: {
       type: String,
       required: true,
     },
     editorial: {
       type: String,
     },
-    cathegory: {
+    state: {
       type: String,
       required: true,
       min: 4,
@@ -43,7 +43,7 @@ const productSechema = new Schema(
       ref: 'User',
       required: true,
     },
-    urlimagen: {
+    urlimage: {
       type: String,
       required: true,
       unique: true,

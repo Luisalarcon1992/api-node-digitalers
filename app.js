@@ -35,6 +35,7 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.successMsg = req.flash('successMsg');
   res.locals.errorMsg = req.flash('errorMsg');
+  res.locals.user = req.cookies.token;
 
   next();
 });
@@ -54,7 +55,7 @@ app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // rutas
-app.use('/productos', productsRouter);
+app.use('/propiedades', productsRouter);
 app.use('/user', userRouter);
 app.use('/', frontEndRouter);
 
@@ -68,12 +69,11 @@ initSwagger();
 
 // 404 cuando no encuentra una ruta
 app.use((req, res) => {
-  res.send('<h1>404</h1>');
+  res.redirect('/');
 });
 
 const PORT = process.env.PORT ?? 4000;
 
-app.listen(PORT, () => {
+app.listen(PORT, (res) => {
   console.log(`Server funcionando en el puerto http://localhost:${PORT}`);
-  // swaggerDocs(app, PORT);
 });

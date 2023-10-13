@@ -878,6 +878,10 @@ header {
     padding: 10px;
 }
 
+.number {
+    width: 70%;
+}
+
 .form-card button {
     font-size: 25px;
     color: var(--dark);
@@ -886,6 +890,15 @@ header {
     padding: 10px;
     border-radius: 10px;
 }
+
+.form-group select {
+    font-size: 20px;
+    background-color: var(--light);
+    border: 1px dotted var(--primary);
+    width: 54.5%;
+    text-align: left;
+}
+
 
 /* Estilos para el contenedor de la alerta */
 .custom-alert {
@@ -911,6 +924,61 @@ header {
     font-size: 1rem;
     cursor: pointer;
 }
+
+.comment-page {
+    display: flex;
+    padding: 10px;
+}
+
+.comment-page iframe {
+    width: 50%;
+    height: 450px;
+    border: 0;
+}
+
+.content {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+.info-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.info-form input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid var(--primary);
+    color: var(--dark);
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.form-contact input[name='subject'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
+.form-contact textarea {
+    width: 100%;
+    padding: 10px;
+    min-height: 250px;
+    margin-top: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
 
 
 

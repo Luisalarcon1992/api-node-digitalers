@@ -24,21 +24,21 @@ export default class ProductsController {
     const {
       name,
       description,
-      publicdate,
-      author,
-      language,
-      editorial,
-      cathegory,
+      direction,
+      price,
+      cathegoryProperty,
+      state,
+      urlimage,
     } = req.body;
 
     const product = new Product({
       name,
       description,
-      publicdate,
-      author,
-      language,
-      editorial,
-      cathegory,
+      direction,
+      price,
+      cathegoryProperty,
+      state,
+      urlimage,
       user: req.user.id, // se almacena el id del usuario que hizo la carga del producto
     });
 
