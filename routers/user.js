@@ -77,3 +77,5 @@ userRouter.post(
   validateSechemaLogin(userSchemaLogin),
   UserController.loginUser,
 );
+
+userRouter.get('/logout', UserController.logoutUser);

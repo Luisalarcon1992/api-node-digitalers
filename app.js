@@ -32,10 +32,12 @@ app.use(
   }),
 );
 app.use(flash());
+
+app.locals.userRoll = null;
 app.use((req, res, next) => {
   res.locals.successMsg = req.flash('successMsg');
   res.locals.errorMsg = req.flash('errorMsg');
-  res.locals.user = req.cookies.token;
+  res.locals.user = null;
 
   next();
 });

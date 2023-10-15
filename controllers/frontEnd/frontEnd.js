@@ -1,6 +1,18 @@
 export default class FrontEndController {
   static async index(req, res) {
-    res.render('index');
+    let admin = res.app.locals.userRoll;
+    let user = res.app.locals.userRoll;
+
+    user === null ? (user = false) : (user = true);
+    admin === 'admin' ? (admin = true) : (admin = false);
+
+    console.log('############### INDEX  ##############');
+    console.log(admin);
+    console.log(user);
+    res.render('index', {
+      user,
+      admin,
+    });
   }
 
   static async about(req, res) {
@@ -16,10 +28,17 @@ export default class FrontEndController {
   }
 
   static async logout(req, res) {
+    res.app.locals.userRoll = 'user';
+    console.log('****************************');
+    console.log(res.app.locals.userRoll);
     res.redirect('/');
   }
 
   static async admin(req, res) {
+    const { roll } = req.user;
+    if (roll === 'admin') {
+      res.app.locals.userRoll = roll;
+    }
     const context = {
       validCategories: [
         'Construcción',

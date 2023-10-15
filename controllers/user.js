@@ -73,6 +73,11 @@ export default class UserController {
       req.flash('errorMsg', 'Mail o contraseña incorrecto');
       return res.redirect('/login');
     }
+    if (user.roll === 'admin') {
+      res.app.locals.userRoll = user.roll;
+    } else {
+      res.app.locals.userRoll = 'user';
+    }
     console.log(user);
     // Si el correo electrónico y la contraseña son válidos, generamos un token y respondemos
     const token = await Token.createToken({ id: user._id, roll: user.roll });
@@ -83,14 +88,15 @@ export default class UserController {
       maxAge: 36000000,
       secure: true,
       sameSite: 'None',
-      Credential: 'include',
+      credential: 'include',
     });
-    console.log('################################');
     res.redirect('/');
   }
 
   static async logoutUser(req, res) {
-    res.clearCookie('token');
+    res.app.locals.userRoll = null;
+    console.log('************LOGOUT*********************');
+    console.log(res.app.locals.userRoll);
     res.redirect('/');
   }
 }

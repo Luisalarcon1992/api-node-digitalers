@@ -33,18 +33,15 @@ export function verificarToken2(req, res, next) {
   try {
     const decoded = jwt.verify(token, secret);
     req.user = decoded;
+    console.log(req.user);
 
     if (req.user.roll !== 'admin') {
-      console.log(req.user);
-      console.log('prueba jwt para ver el user');
       return res
         .status(403)
         .json({ message: 'Acceso denegado. No eres administrador' });
     }
-    console.log('*********************************');
     next();
   } catch (error) {
-    console.log('######################################');
     res.status(401).json({ message: 'Token inválido' });
   }
 }
