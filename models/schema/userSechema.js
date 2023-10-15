@@ -22,6 +22,11 @@ const userSechema = new Schema(
       type: Date,
       default: Date.now,
     },
+    roll: {
+      type: String,
+      min: 4,
+      default: 'usuario',
+    },
   },
   {
     Timestamp: true,

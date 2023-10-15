@@ -20,11 +20,6 @@ export default class FrontEndController {
   }
 
   static async admin(req, res) {
-    const user = req.user;
-    console.log(user);
-    if (!user.admin) {
-      res.redirect('/');
-    }
     const context = {
       validCategories: [
         'Construcción',
@@ -49,7 +44,7 @@ export default class FrontEndController {
     res.render('contact');
   }
 
-  static async propiedades(req, res) {
-    res.render('propiedades');
+  static async propertis(req, res) {
+    res.render('propertis');
   }
 }

@@ -5,7 +5,7 @@ import Token from '../libs/token.js';
 
 export default class UserController {
   static async postCreateUser(req, res) {
-    const { mail, password, username } = req.body;
+    const { mail, password, username, roll } = req.body;
 
     const error = await User.validate({ username, password, mail });
 
@@ -26,18 +26,27 @@ export default class UserController {
         username,
         password: hash,
         mail,
+        roll,
       });
 
       const result = await UserModel.createUser(newUser);
+      console.log(result);
 
       if (!result) {
         req.flash('errorMsg', 'Usuario o mail ya existente');
         res.redirect('/register');
       } else {
-        const token = await Token.createToken({ id: result.insertedId });
+        const token = await Token.createToken({
+          id: result.insertedId,
+          roll: result.roll,
+        });
+        res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
         res.cookie('token', token, {
           httpOnly: true,
-          maxAge: 1800000,
+          maxAge: 36000000,
+          secure: true,
+          sameSite: 'lax',
+          Credential: 'include',
         });
         res.redirect('/login');
       }
@@ -62,20 +71,26 @@ export default class UserController {
 
     if (!isPasswordValid) {
       req.flash('errorMsg', 'Mail o contraseña incorrecto');
-      res.redirect('/login');
+      return res.redirect('/login');
     }
-
+    console.log(user);
     // Si el correo electrónico y la contraseña son válidos, generamos un token y respondemos
-    const token = await Token.createToken({ id: user._id });
+    const token = await Token.createToken({ id: user._id, roll: user.roll });
+    console.log(token);
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
     res.cookie('token', token, {
-      expires: new Date(Date.now() + 3600000),
-      htppOnly: true,
+      httpOnly: true,
+      maxAge: 36000000,
+      secure: true,
+      sameSite: 'None',
+      Credential: 'include',
     });
+    console.log('################################');
     res.redirect('/');
   }
 
   static async logoutUser(req, res) {
-    res.cookies = '';
+    res.clearCookie('token');
     res.redirect('/');
   }
 }

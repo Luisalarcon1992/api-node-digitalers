@@ -28,8 +28,11 @@ export default class UserModel {
 
       // Insertar el usuario en la base de datos
       const userCreated = await userCollection.insertOne(user);
+      const newUser = await userCollection.findOne({
+        _id: userCreated.insertedId,
+      });
 
-      return userCreated; // Usuario insertado correctamente
+      return newUser; // Usuario insertado correctamente
     } catch (error) {
       console.error('Error al insertar el usuario en la base de datos:', error);
       return false; // Error al insertar el usuario
@@ -38,7 +41,7 @@ export default class UserModel {
 
   static async getUserMail(mail) {
     const existMail = await userCollection.findOne({
-      mail: mail,
+      mail,
     });
 
     if (existMail) {
