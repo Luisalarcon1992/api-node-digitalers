@@ -28,9 +28,16 @@
           <p>{{name}}</p>
           <i class='fa-solid fa-location-dot'></i><span>
             {{direction}}</span>
-          {{#if admin}}
-            <a href='#'>Editar</a>
-            <a href='#'>Eliminar</a>
+          {{#if ../admin}}
+          <div class='form-admin'>
+            <form action='/propiedades/{{_id}}?_method=DELETE' method='POST'>
+              <input type='hidden' name='_method' method='DELETE' />
+              <button type='submit'>Eliminar</button>
+            </form>
+            <form action='/propiedades/edit/{{_id}}'>
+              <button type='submit'>Editar</button>
+            </form>
+          </div>
           {{/if}}
         </div>
         <div class='informacion'>

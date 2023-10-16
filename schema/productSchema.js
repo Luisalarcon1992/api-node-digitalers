@@ -21,7 +21,7 @@ export const productSchema = z.object({
         'El máximo para descripción de la propiedad es de 500 caracateres',
     }),
   price: z
-    .number({
+    .string({
       invalid_type_error: 'El precio debe ser número',
       required_error: 'El precio es requerido',
     })

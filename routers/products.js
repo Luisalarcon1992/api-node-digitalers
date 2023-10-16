@@ -83,7 +83,7 @@ productsRouter.post(
  */
 productsRouter.get('/:id', verificarToken, ProductsController.getProduct);
 
-productsRouter.get('/filter/:state', ProductsController.getProduct);
+productsRouter.get('/filter/:state', ProductsController.getProductState);
 
 /**
  * @swagger
@@ -143,6 +143,12 @@ productsRouter.post(
   validateSechema(productSchema),
   verificarToken,
   ProductsController.AddProducts,
+);
+
+productsRouter.get(
+  '/edit/:id',
+  verificarToken,
+  ProductsController.getProductById,
 );
 
 productsRouter.put(

@@ -454,6 +454,32 @@ header {
     margin: 10px;
 }
 
+.form-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+.form-admin form button {
+    color: var(--dark);
+    font-size: ;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transform: scale(1);
+    transition: transform 0.4s ease;
+}
+
+.form-admin form button:hover {
+    color: var(--light);
+    transform: scale(1.2);
+}
+
 .precio-ubicacion h2 {
     color: var(--primary);
 }

@@ -67,11 +67,9 @@ export default class FrontEndController {
 
   static async propertis(req, res) {
     const data = res.data;
-    const prueba = res.app.locals.userRoll;
-    console.log('**********************************');
-    console.log(prueba);
+    const admin = res.app.locals.userRoll;
     res.render('propertis', {
-      prueba,
+      admin,
       data,
     });
   }

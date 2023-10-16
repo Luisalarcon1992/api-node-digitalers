@@ -12,6 +12,7 @@ import { fileURLToPath } from 'url';
 import morgan from 'morgan';
 import flash from 'connect-flash';
 import session from 'express-session';
+import methodOverride from 'method-override';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -32,6 +33,7 @@ app.use(
   }),
 );
 app.use(flash());
+app.use(methodOverride('_method'));
 
 app.locals.userRoll = null;
 app.use((req, res, next) => {

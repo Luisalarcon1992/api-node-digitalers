@@ -51,6 +51,20 @@ export default class ProductModel {
     }
   }
 
+  static async getProductSate(state) {
+    try {
+      if (state) {
+        const query = { state };
+        const result = products.findOne(query);
+        return result;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   static async postAddProducts(data) {
     try {
       const addedPost = await products.insertOne(data);

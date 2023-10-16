@@ -12,6 +12,47 @@ export default class ProductsController {
   }
 
   static async getProduct(req, res) {
+    const { id } = req.params;
+
+    const data = await ProductModel.getProduct(id);
+    if (data) {
+      return res.render('propertis', {
+        data,
+      });
+    } else {
+      return false;
+    }
+  }
+
+  static async getProductById(req, res) {
+    const { id } = req.params;
+    const context = {
+      validCategories: [
+        'Construcción',
+        'Oficina',
+        'Villa',
+        'Departamento',
+        'Casa',
+      ],
+    };
+
+    const stateProperty = {
+      state: ['Venta', 'Alquiler', 'Vendido', 'Alquilado'],
+    };
+
+    const data = await ProductModel.getProduct(id);
+    if (data) {
+      return res.render('edit', {
+        data,
+        context,
+        stateProperty,
+      });
+    } else {
+      return false;
+    }
+  }
+
+  static async getProductState(req, res) {
     const { state } = req.params;
 
     const data = await ProductModel.getProductState(state);
@@ -76,7 +117,7 @@ export default class ProductsController {
     const { id } = req.params;
     const deletedDocument = await ProductModel.deleteProductById(id);
     if (deletedDocument) {
-      return res.redirect('/');
+      return res.redirect('/propertis');
     }
     return res.status(404).json({ Error: `El ${id} no existe` });
   }
@@ -99,7 +140,7 @@ export default class ProductsController {
     const productUpdated = await ProductModel.updateProduct(id, req.body);
 
     if (productUpdated) {
-      return res.status(200).json(productUpdated);
+      return res.redirect('/residencias');
     }
 
     return res.status(400).json({ Error: 'El id brindado no existe' });
