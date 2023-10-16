@@ -66,11 +66,15 @@ export default class FrontEndController {
   }
 
   static async propertis(req, res) {
+    let admin = res.app.locals.userRoll;
+    let user = res.app.locals.userRoll;
     const data = res.data;
-    const admin = res.app.locals.userRoll;
+    user === null ? (user = false) : (user = true);
+    admin === 'admin' ? (admin = true) : (admin = false);
     res.render('propertis', {
       admin,
       data,
+      user,
     });
   }
 }
