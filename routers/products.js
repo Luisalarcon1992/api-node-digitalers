@@ -83,6 +83,8 @@ productsRouter.post(
  */
 productsRouter.get('/:id', verificarToken, ProductsController.getProduct);
 
+productsRouter.get('/filter/:state', ProductsController.getProduct);
+
 /**
  * @swagger
  * /productos/{id}:

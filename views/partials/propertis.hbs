@@ -10,128 +10,41 @@
     </div>
     <div class='listas'>
       <ul>
-        <li><a href='#'>Todos</a></li>
-        <li><a href='#'>Venta</a></li>
-        <li><a href='#'>Alquiler</a></li>
       </ul>
     </div>
   </div>
 
   <div class='todas-propiedades'>
-    <div class='card-principal'>
-      <div class='imagen-venta'>
-        <a href='#'><img src='/img/carousel-2.jpg' alt='' /></a>
-        <span class='span1'>Venta</span>
-        <span class='span2'>Alquiler</span>
+    <!-- Acá comienzan todas las cards individuales -->
+    {{#each data}}
+      <div class='card-principal'>
+        <div class='imagen-venta'>
+          <a href='#'><img src='{{urlimage}}' alt='{{description}}' /></a>
+          <span class='span1'>{{state}}</span>
+          <span class='span2'>{{cathegoryProperty}}</span>
+        </div>
+        <div class='precio-ubicacion'>
+          <h2>${{price}}</h2>
+          <p>{{name}}</p>
+          <i class='fa-solid fa-location-dot'></i><span>
+            {{direction}}</span>
+          {{#if admin}}
+            <a href='#'>Editar</a>
+            <a href='#'>Eliminar</a>
+          {{/if}}
+        </div>
+        <div class='informacion'>
+          <small class='m2'><i
+              class='fa-solid fa-ruler-combined'
+            ></i>{{dimension}}
+            m2</small>
+          <small class='habitaciones'><i class='fa-solid fa-bed'></i>{{room}}
+            habitaciones</small>
+          <small class='banios'><i class='fa-solid fa-bath'></i>{{bathroom}}
+            baños</small>
+        </div>
       </div>
-      <div class='precio-ubicacion'>
-        <h2>$112323</h2>
-        <p>Casa oro en venta</p>
-        <i class='fa-solid fa-location-dot'></i><span>
-          123 calle siempre viva</span>
-      </div>
-      <div class='informacion'>
-        <small class='m2'><i class='fa-solid fa-ruler-combined'></i>300 m2</small>
-        <small class='habitaciones'><i class='fa-solid fa-bed'></i>3
-          habitaciones</small>
-        <small class='banios'><i class='fa-solid fa-bath'></i>2 baños</small>
-      </div>
-    </div>
-    <div class='card-principal'>
-      <div class='imagen-venta'>
-        <a href='#'><img src='/img/carousel-2.jpg' alt='' /></a>
-        <span class='span1'>Venta</span>
-        <span class='span2'>Alquiler</span>
-      </div>
-      <div class='precio-ubicacion'>
-        <h2>$112323</h2>
-        <p>Casa oro en venta</p>
-        <i class='fa-solid fa-location-dot'></i><span>
-          123 calle siempre viva</span>
-      </div>
-      <div class='informacion'>
-        <small class='m2'><i class='fa-solid fa-ruler-combined'></i>300 m2</small>
-        <small class='habitaciones'><i class='fa-solid fa-bed'></i>3
-          habitaciones</small>
-        <small class='banios'><i class='fa-solid fa-bath'></i>2 baños</small>
-      </div>
-    </div>
-    <div class='card-principal'>
-      <div class='imagen-venta'>
-        <a href='#'><img src='/img/carousel-2.jpg' alt='' /></a>
-        <span class='span1'>Venta</span>
-        <span class='span2'>Alquiler</span>
-      </div>
-      <div class='precio-ubicacion'>
-        <h2>$112323</h2>
-        <p>Casa oro en venta</p>
-        <i class='fa-solid fa-location-dot'></i><span>
-          123 calle siempre viva</span>
-      </div>
-      <div class='informacion'>
-        <small class='m2'><i class='fa-solid fa-ruler-combined'></i>300 m2</small>
-        <small class='habitaciones'><i class='fa-solid fa-bed'></i>3
-          habitaciones</small>
-        <small class='banios'><i class='fa-solid fa-bath'></i>2 baños</small>
-      </div>
-    </div>
-    <div class='card-principal'>
-      <div class='imagen-venta'>
-        <a href='#'><img src='/img/carousel-2.jpg' alt='' /></a>
-        <span class='span1'>Venta</span>
-        <span class='span2'>Alquiler</span>
-      </div>
-      <div class='precio-ubicacion'>
-        <h2>$112323</h2>
-        <p>Casa oro en venta</p>
-        <i class='fa-solid fa-location-dot'></i><span>
-          123 calle siempre viva</span>
-      </div>
-      <div class='informacion'>
-        <small class='m2'><i class='fa-solid fa-ruler-combined'></i>300 m2</small>
-        <small class='habitaciones'><i class='fa-solid fa-bed'></i>3
-          habitaciones</small>
-        <small class='banios'><i class='fa-solid fa-bath'></i>2 baños</small>
-      </div>
-    </div>
-    <div class='card-principal'>
-      <div class='imagen-venta'>
-        <a href='#'><img src='/img/carousel-2.jpg' alt='' /></a>
-        <span class='span1'>Venta</span>
-        <span class='span2'>Alquiler</span>
-      </div>
-      <div class='precio-ubicacion'>
-        <h2>$112323</h2>
-        <p>Casa oro en venta</p>
-        <i class='fa-solid fa-location-dot'></i><span>
-          123 calle siempre viva</span>
-      </div>
-      <div class='informacion'>
-        <small class='m2'><i class='fa-solid fa-ruler-combined'></i>300 m2</small>
-        <small class='habitaciones'><i class='fa-solid fa-bed'></i>3
-          habitaciones</small>
-        <small class='banios'><i class='fa-solid fa-bath'></i>2 baños</small>
-      </div>
-    </div>
-    <div class='card-principal'>
-      <div class='imagen-venta'>
-        <a href='#'><img src='/img/carousel-2.jpg' alt='' /></a>
-        <span class='span1'>Venta</span>
-        <span class='span2'>Alquiler</span>
-      </div>
-      <div class='precio-ubicacion'>
-        <h2>$112323</h2>
-        <p>Casa oro en venta</p>
-        <i class='fa-solid fa-location-dot'></i><span>
-          123 calle siempre viva</span>
-      </div>
-      <div class='informacion'>
-        <small class='m2'><i class='fa-solid fa-ruler-combined'></i>300 m2</small>
-        <small class='habitaciones'><i class='fa-solid fa-bed'></i>3
-          habitaciones</small>
-        <small class='banios'><i class='fa-solid fa-bath'></i>2 baños</small>
-      </div>
-    </div>
+    {{/each}}
   </div>
   <div class='ver'>
     <a href=''>Ver más propiedades</a>

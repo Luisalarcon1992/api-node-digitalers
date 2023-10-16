@@ -40,3 +40,31 @@ document.addEventListener('DOMContentLoaded', function () {
     alert.style.display = 'none'; // Oculta la alerta al hacer clic en el botón de cierre
   });
 });
+
+// Agregar un evento de clic al botón "Todos"
+document.getElementById('all').addEventListener('click', function () {
+  filterProducts('all');
+});
+
+// Agregar un evento de clic al botón "Venta"
+document.getElementById('venta').addEventListener('click', function () {
+  filterProducts('venta');
+});
+
+// Agregar un evento de clic al botón "Alquiler"
+document.getElementById('alquiler').addEventListener('click', function () {
+  filterProducts('alquiler');
+});
+
+function filterProducts(filter) {
+  // Realizar una solicitud AJAX al servidor con la función fetch
+  fetch(`/propiedades/${filter}`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Actualizar la página con los datos filtrados sin recargarla
+      // Puedes usar JavaScript para actualizar la vista según los datos
+    })
+    .catch((error) => {
+      console.error('Error al obtener datos filtrados:', error);
+    });
+}

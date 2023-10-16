@@ -48,6 +48,18 @@ const productSechema = new Schema(
       required: true,
       unique: true,
     },
+    bathroom: {
+      type: String,
+      required: true,
+    },
+    room: {
+      type: String,
+      required: true,
+    },
+    dimension: {
+      type: String,
+      required: true,
+    },
   },
   {
     Timestamp: true,

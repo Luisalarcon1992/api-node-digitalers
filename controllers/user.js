@@ -30,7 +30,6 @@ export default class UserController {
       });
 
       const result = await UserModel.createUser(newUser);
-      console.log(result);
 
       if (!result) {
         req.flash('errorMsg', 'Usuario o mail ya existente');
@@ -78,10 +77,9 @@ export default class UserController {
     } else {
       res.app.locals.userRoll = 'user';
     }
-    console.log(user);
     // Si el correo electrónico y la contraseña son válidos, generamos un token y respondemos
     const token = await Token.createToken({ id: user._id, roll: user.roll });
-    console.log(token);
+
     res.header('Access-Control-Allow-Origin', 'http://localhost:4000');
     res.cookie('token', token, {
       httpOnly: true,
@@ -95,8 +93,6 @@ export default class UserController {
 
   static async logoutUser(req, res) {
     res.app.locals.userRoll = null;
-    console.log('************LOGOUT*********************');
-    console.log(res.app.locals.userRoll);
     res.redirect('/');
   }
 }

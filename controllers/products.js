@@ -3,21 +3,25 @@ import Product from '../models/schema/productSchema.js';
 
 export default class ProductsController {
   static async getAllPrudcts(req, res) {
-    const user = req.user.id;
-    const allProducts = await ProductModel.getAllPrudcts(user);
+    // const user = req.user.id; En caso de necesitar traer por el usuario que se haya cargado, pasarlo como parámetro
+    const allProducts = await ProductModel.getAllPrudcts();
     if (allProducts.length > 0) {
-      return res.status(200).json(allProducts);
+      return allProducts;
     }
     return res.status(200).json({ Vacio: 'La colección está sin datos' });
   }
 
   static async getProduct(req, res) {
-    const { id } = req.params;
+    const { state } = req.params;
 
-    const users = await ProductModel.getProduct(id);
-    if (users) return res.status(200).json(users);
-
-    return res.status(404).json({ Error: 'No se encontró el id' });
+    const data = await ProductModel.getProductState(state);
+    if (data) {
+      return res.render('propertis', {
+        data,
+      });
+    } else {
+      return false;
+    }
   }
 
   static async AddProducts(req, res) {
@@ -28,6 +32,9 @@ export default class ProductsController {
       price,
       cathegoryProperty,
       state,
+      bathroom,
+      dimension,
+      room,
       urlimage,
     } = req.body;
 
@@ -38,6 +45,9 @@ export default class ProductsController {
       price,
       cathegoryProperty,
       state,
+      bathroom,
+      dimension,
+      room,
       urlimage,
       user: req.user.id, // se almacena el id del usuario que hizo la carga del producto
     });

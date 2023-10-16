@@ -52,4 +52,26 @@ export const productSchema = z.object({
     .url({
       message: 'La imagen debe contener la url',
     }),
+  bathroom: z
+    .string({
+      invalid_type_error: 'El número de baño debe ser número',
+      required_error: 'El número de baño es requerido',
+    })
+    .min(0, {
+      message: 'El mínimo para número de baño es de 1',
+    })
+    .max(5, {
+      message: 'El máximo para numeros de baño es de 5',
+    }),
+  room: z
+    .string({
+      invalid_type_error: 'El número de habitaciones debe ser número',
+      required_error: 'El número de habitaciones es requerido',
+    })
+    .min(1, {
+      message: 'El mínimo para número de habitaciones es de 1',
+    }),
+  dimension: z.string().min(1, {
+    message: 'La dimensión debe ser mayor a 1',
+  }),
 });

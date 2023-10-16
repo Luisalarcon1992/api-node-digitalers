@@ -2,21 +2,21 @@ export default class FrontEndController {
   static async index(req, res) {
     let admin = res.app.locals.userRoll;
     let user = res.app.locals.userRoll;
-
+    const data = res.data;
     user === null ? (user = false) : (user = true);
     admin === 'admin' ? (admin = true) : (admin = false);
-
-    console.log('############### INDEX  ##############');
-    console.log(admin);
-    console.log(user);
     res.render('index', {
       user,
       admin,
+      data,
     });
   }
 
   static async about(req, res) {
-    res.render('about');
+    const data = res.data;
+    res.render('about', {
+      data,
+    });
   }
 
   static async register(req, res) {
@@ -29,8 +29,6 @@ export default class FrontEndController {
 
   static async logout(req, res) {
     res.app.locals.userRoll = 'user';
-    console.log('****************************');
-    console.log(res.app.locals.userRoll);
     res.redirect('/');
   }
 
@@ -50,7 +48,7 @@ export default class FrontEndController {
     };
 
     const stateProperty = {
-      state: ['En venta', 'Alquiler', 'Vendido', 'Alquilado'],
+      state: ['Venta', 'Alquiler', 'Vendido', 'Alquilado'],
     };
 
     res.render('admin', {
@@ -60,10 +58,21 @@ export default class FrontEndController {
   }
 
   static async contact(req, res) {
-    res.render('contact');
+    const data = res.data;
+
+    res.render('contact', {
+      data,
+    });
   }
 
   static async propertis(req, res) {
-    res.render('propertis');
+    const data = res.data;
+    const prueba = res.app.locals.userRoll;
+    console.log('**********************************');
+    console.log(prueba);
+    res.render('propertis', {
+      prueba,
+      data,
+    });
   }
 }

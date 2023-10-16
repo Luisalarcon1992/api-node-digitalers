@@ -5,30 +5,31 @@ const database = client.db('digitalers');
 const products = database.collection('products');
 
 export default class ProductModel {
-  static async getAllPrudcts(id) {
+  static async getAllPrudcts() {
     try {
-      const nid = new ObjectId(id); // convierto el string ir del bobdy a un ObjectID
+      // todo esto, en caso de que se necesite traer con el id de quién hizo la carga en la bd
+      //   const nid = new ObjectId(id); // convierto el string id del bobdy a un ObjectID
 
-      const pipeline = [
-        {
-          $match: {
-            user: nid,
-          },
-        },
-        {
-          $lookup: {
-            from: 'user', // Reemplaza 'users' con el nombre de la colección de usuarios en tu base de datos
-            localField: 'user',
-            foreignField: '_id',
-            as: 'user',
-          },
-        },
-        {
-          $unwind: '$user',
-        },
-      ];
+      //   const pipeline = [
+      //     {
+      //       $match: {
+      //         user: nid,
+      //       },
+      //     },
+      //     {
+      //       $lookup: {
+      //         from: 'user', // Reemplaza 'users' con el nombre de la colección de usuarios en tu base de datos
+      //         localField: 'user',
+      //         foreignField: '_id',
+      //         as: 'user',
+      //       },
+      //     },
+      //     {
+      //       $unwind: '$user',
+      //     },
+      //   ];
 
-      const created = await products.aggregate(pipeline).toArray();
+      const created = await products.find().toArray();
       return created;
     } catch (error) {
       return false;

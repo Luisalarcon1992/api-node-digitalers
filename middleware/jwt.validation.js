@@ -16,7 +16,6 @@ export function verificarToken(req, res, next) {
   jwt.verify(token, secret, (err, user) => {
     if (err) return res.status(400).json({ error: 'Token inválido' });
     req.user = user;
-    console.log(req.user);
     // Si el token es válido, continúa con la siguiente ruta
     next();
   });
@@ -33,7 +32,6 @@ export function verificarToken2(req, res, next) {
   try {
     const decoded = jwt.verify(token, secret);
     req.user = decoded;
-    console.log(req.user);
 
     if (req.user.roll !== 'admin') {
       return res
