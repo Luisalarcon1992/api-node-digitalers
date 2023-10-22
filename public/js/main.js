@@ -77,6 +77,6 @@ const stars = document.querySelectorAll('.star');
 stars.forEach((star) => {
   const rating = parseFloat(star.getAttribute('data-rating'));
   if (rating <= userRating) {
-    star.style.color = '#ffdb58'; // Color de las estrellas rellenas
+    star.style.color = '#00B98E'; // Color de las estrellas rellenas
   }
 });

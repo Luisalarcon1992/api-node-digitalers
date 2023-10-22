@@ -427,11 +427,13 @@ header {
 .imagen-venta {
     position: relative;
     overflow: hidden;
+
 }
 
 .imagen-venta img {
+    min-width: 375.66px;
     max-width: 100%;
-    height: auto;
+    height: 375.66px;
     display: block;
 }
 
@@ -734,6 +736,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 146px;
     gap: 20px;
     width: 500px;
     background-color: white;
@@ -1046,12 +1049,15 @@ header {
 .star[data-rating="2"],
 .star[data-rating="3"],
 .star[data-rating="4"],
-.star[data-rating="5"] {
-    color: #ffdb58;
+.star[data-rating="5"],
+.star[data-rating="4.5"] {
+    color: #00B98E;
     /* Color de las estrella rellenas */
 }
 
-
+.comment-text-content p span {
+    color: var(--primary);
+}
 
 /* IDs */
 
