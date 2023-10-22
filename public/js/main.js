@@ -68,3 +68,15 @@ function filterProducts(filter) {
       console.error('Error al obtener datos filtrados:', error);
     });
 }
+
+// Reemplaza '4.5' con la calificación real proporcionada por el usuario
+const userRating = 4.5;
+
+const stars = document.querySelectorAll('.star');
+
+stars.forEach((star) => {
+  const rating = parseFloat(star.getAttribute('data-rating'));
+  if (rating <= userRating) {
+    star.style.color = '#ffdb58'; // Color de las estrellas rellenas
+  }
+});
