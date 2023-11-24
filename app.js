@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import { productsRouter } from './routers/products.js';
 import { userRouter } from './routers/user.js';
 import { frontEndRouter } from './routers/frontEnd/frontEnd.js';
+import { ContactRouter } from './routers/contact.js';
 import cookieParser from 'cookie-parser';
 import swaggerJSDoc from 'swagger-jsdoc';
 import { swaggerOptions } from './swagger.js';
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // rutas
 app.use('/propiedades', productsRouter);
 app.use('/user', userRouter);
+app.use('/contacto', ContactRouter);
 app.use('/', frontEndRouter);
 
 // swagger

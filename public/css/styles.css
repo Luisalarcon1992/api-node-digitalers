@@ -478,7 +478,6 @@ header {
 
 .form-admin form button {
     color: var(--dark);
-    font-size: ;
     background-color: var(--primary);
     border: none;
     border-radius: 20px;
@@ -950,6 +949,23 @@ header {
 }
 
 
+.contactanos {
+    margin-top: 5px;
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px;
+    color: var(--dark);
+    background-color: var(--primary);
+    transform: scale(1);
+    transition: transform 0.4s ease;
+}
+
+.contactanos button:hover {
+    transform: scale(1.1);
+    color: var(--light);
+}
+
 /* Estilos para el contenedor de la alerta */
 .custom-alert {
     display: flex;
@@ -1023,7 +1039,7 @@ header {
 .form-contact textarea {
     width: 100%;
     padding: 10px;
-    min-height: 250px;
+    min-height: 220px;
     margin-top: 10px;
     border: 1px solid var(--primary);
     border-radius: 5px;
@@ -1066,58 +1082,15 @@ header {
 }
 
 
+
 /* Media Queryes*/
 
 @media (max-width:991px) {
-    .menu {
-        padding: 30px;
+    .checkbox:checked~ul {
+        display: block;
     }
 
-    .menu label {
-        display: initial;
-    }
-
-    .menu .navbar {
-        position: absolute;
-
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #0E2E50;
-        backdrop-filter: blur(5px);
+    .checkbox {
         display: none;
     }
-
-    .menu .navbar ul li {
-        width: 100%;
-    }
-
-    #menu:checked~.navbar {
-        display: initial;
-    }
-
-    .header {
-        padding: 80px 30px 50px 30px;
-        align-items: self-start;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .header-text {
-        text-align: center;
-        width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .header-text h1 {
-        margin-bottom: 10px;
-    }
-
-    .images {
-        position: initial;
-        width: 300px;
-        height: 300px;
-    }
-
-
 }
